@@ -15,6 +15,7 @@ import tuna.cinergyelite.info.InfoFragment
 import tuna.cinergyelite.utils.DeviceIdManager
 import tuna.cinergyelite.utils.PreferenceHelper
 import tuna.cinergyelite.viewModels.EscapeRoomViewModel
+import tuna.core.constansts.Constants
 import tuna.core.data.model.request.EscapeRoomRequest
 import tuna.core.data.network.ApiResult
 
@@ -44,10 +45,15 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val memberId = if (PreferenceHelper.getInt(Constants.MEMBER_ID) != -1) {
+            PreferenceHelper.getInt(Constants.MEMBER_ID)
+        } else {
+            null
+        }
         homeViewModel.getEscapeRooms(
             EscapeRoomRequest(
                 DeviceIdManager.getDeviceId(),
-                PreferenceHelper.getInt("member_id")
+                memberId
             )
         )
     }

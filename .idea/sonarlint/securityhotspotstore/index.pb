@@ -89,3 +89,17 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+w
+G.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0,f\0\f0e0f9cec86fe4b939ae22be5264c758801eb28f
+w
+G.idea/sonarlint/issuestore/a/e/ae00e14a93cb05cbe86f462a3bad74d51f6b1afc,0\f\0fb627c61387d98554b2dd71aee399bf9ae905de
+Å
+Q.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e,9\0\909762385fc6eb20f922a91c6865741308b57f2c
+w
+G.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e,a\e\ae9ddf453f55affea2d6b9e3973cac1eb2efb4e1
+Å
+Q.idea/sonarlint/securityhotspotstore/a/e/ae00e14a93cb05cbe86f462a3bad74d51f6b1afc,0\5\0588bfde17ddc00b8e90e37d8de0b0eff54651aa
+Å
+Q.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0,b\b\bbf202272a96de5cd6b6828ffdc55fb3ce45289c
+u
+Eapp/src/androidTest/java/tuna/cinergyelite/ExampleInstrumentedTest.kt,8\0\80dc1f61e59ca2192a661bdc57f6516e90ca6ede

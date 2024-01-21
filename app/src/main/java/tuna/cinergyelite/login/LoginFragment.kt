@@ -94,7 +94,11 @@ class LoginFragment : Fragment() {
                 }
                 is ApiResult.Success -> {
                     PreferenceHelper.saveInt(Constants.USER_ID,it.data.user?.id?:0)
-                    PreferenceHelper.saveInt(Constants.MEMBER_ID,it.data.user?.memberId?:0)
+                    it.data.user?.memberId?.let { it1 ->
+                        PreferenceHelper.saveInt(Constants.MEMBER_ID,
+                            it1
+                        )
+                    }
                     Toast.makeText(requireContext(), it.data.response, Toast.LENGTH_SHORT).show()
                     loginViewModel.login.postValue(null)
                     findNavController().navigateTo(R.id.homeFragment)
