@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Cinergy Elite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="join_the_magic">Join The Magic</string>
+    <string name="be_cinergy_elite">Be Cinergy Elite</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_in_now">Sign In Now!</string>
+    <string name="continue_as_guest">Continue As Guest</string>
+    <string name="logo">logo</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="back">Back</string>
+    <string name="tulsa_ok">Tulsa, OK</string>
+    <string name="escape_rooms">Escape Rooms</string>
+    <string name="poster">Poster</string>
+    <string name="close">Close</string>
+    <string name="more">More</string>
+    <string name="choose_date">Choose Date</string>
+    <string name="choose_time">Choose Time</string>
+    <string name="book_now">Book Now</string>
+    <string name="ratingDuration">%1$s • %2$s</string>
+    <string name="day_date">%1$s %2$s</string>
+    <string name="continues">Continue</string>
+    <string name="no_showtimes_available">No showtimes available</string>
+</resources>

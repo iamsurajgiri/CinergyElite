@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".info.InfoFragment">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="8dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="8dp" />
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="8dp"
+        android:background="@drawable/outline_close_24"
+        android:contentDescription="@string/close"
+        app:layout_constraintEnd_toStartOf="@id/end"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:scaleType="fitXY" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="150dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="8dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintStart_toEndOf="@id/start"
+        app:layout_constraintTop_toBottomOf="@id/close">
+
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/poster"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/backgrounds/scenic" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/cardView"
+        app:layout_constraintTop_toBottomOf="@id/close"
+        tools:text="Escape Room - Bunker 57" />
+
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="14sp"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toEndOf="@id/cardView"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="60 mins"
+        android:drawablePadding="4dp"
+        app:drawableStartCompat="@drawable/calendar_24"
+        app:drawableTint="@color/primary" />
+    <TextView
+        android:id="@+id/members"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:drawablePadding="4dp"
+        android:textSize="14sp"
+        app:drawableStartCompat="@drawable/person_14dp"
+        app:layout_constraintStart_toEndOf="@id/duration"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="Up to 8 members"
+        app:drawableTint="@color/primary" />
+
+    <TextView
+        android:id="@+id/description"
+        app:layout_constraintBottom_toBottomOf="@id/cardView"
+        app:layout_constraintEnd_toStartOf="@id/end"
+        android:layout_marginHorizontal="8dp"
+        app:layout_constraintStart_toEndOf="@id/cardView"
+        android:ellipsize="end"
+        android:maxLines="15"
+        tools:text="LOS Angeles, 1984. A secret bunker. A mysterious virus outbreak. You are trapped and time is running out. Can you escape?. Come and experience the most immersive escape room in the world. State of the art technology, Hollywood quality sets, and mind-blowing puzzles. Escape Room LA is the largest and most popular escape room venue in Los Angeles. Five convenient locations. Six unique escape rooms. One unforgettable experience. Today is the day. Time is running out. What are you waiting for? Book now! And remember, don't panic!"
+        app:layout_constraintTop_toBottomOf="@id/members"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:backgroundTint="@color/primary"
+        android:id="@+id/bookNow"
+        app:layout_constraintTop_toBottomOf="@id/cardView"
+        app:cornerRadius="8dp"
+        android:textAllCaps="false"
+        android:layout_marginTop="4dp"
+        android:text="@string/book_now"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/start"
+        app:layout_constraintBottom_toTopOf="@id/bottom"
+        app:layout_constraintEnd_toStartOf="@id/more"
+        android:layout_marginEnd="32dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/more"
+        app:layout_constraintTop_toTopOf="@id/bookNow"
+        app:layout_constraintBottom_toBottomOf="@id/bookNow"
+        app:layout_constraintEnd_toStartOf="@id/end"
+        android:paddingHorizontal="10dp"
+        android:text="@string/more"
+        android:layout_marginEnd="2dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:drawableTopCompat="@drawable/info_black_24dp"
+        app:drawableTint="@color/primary" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="12dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
