@@ -56,7 +56,7 @@ class DateAdapter(
             if (item.isSelected) {
                 binding.parent.setBackgroundColor(Color.parseColor("#ffffff"))
             }else{
-                binding.parent.setBackgroundColor(Color.parseColor("#f2f2f2"))
+                binding.parent.setBackgroundColor(Color.parseColor("#D1D1D1"))
             }
             binding.day.text = dayDate.day
             binding.date.text =
