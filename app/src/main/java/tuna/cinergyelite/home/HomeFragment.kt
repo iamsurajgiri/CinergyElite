@@ -46,7 +46,8 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
         homeViewModel.getEscapeRooms(
             EscapeRoomRequest(
-                DeviceIdManager.getDeviceId()
+                DeviceIdManager.getDeviceId(),
+                PreferenceHelper.getInt("member_id")
             )
         )
     }

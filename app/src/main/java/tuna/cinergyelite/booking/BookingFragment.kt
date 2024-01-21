@@ -31,21 +31,7 @@ class BookingFragment : Fragment() {
     private val movieId by lazy {
         arguments?.getString("movieId")?:"0"
     }
-    private val dateAdapter by lazy {
-        DateAdapter{
-            val timeList = movieInfo.movieInfo.showTimes.find { showTime ->
-                showTime.date == it
-            }?.sessions
-            if (timeList == null) {
-                Toast.makeText(requireContext(),
-                    getString(R.string.no_showtimes_available), Toast.LENGTH_SHORT)
-                    .show()
-                return@DateAdapter
-            }
-
-            timeAdapter.differ.submitList(timeList)
-        }
-    }
+    private lateinit var dateAdapter: DateAdapter
     private val timeAdapter by lazy {
         TimeAdapter()
     }
@@ -58,6 +44,9 @@ class BookingFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        dateAdapter = DateAdapter{
+            refreshDateAndTime(it)
+        }
         bookingViewModel.getMovieInfo(
             MovieInfoRequest(
                 movieId,
@@ -65,6 +54,7 @@ class BookingFragment : Fragment() {
             )
         )
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -106,12 +96,46 @@ class BookingFragment : Fragment() {
                             it.data.movieInfo.rating,
                             it.data.movieInfo.runTime
                         )
-                        Glide.with(requireContext()).load(it.data.movieInfo.imageUrl).into(poster)
-                        dateAdapter.differ.submitList(it.data.movieInfo.dateList)
+                        inflateAdapters(it.data)
                     }
                 }
             }
         }
+    }
+
+    private fun inflateAdapters(item: MovieInfoResponse) {
+        Glide.with(requireContext()).load(item.movieInfo.imageUrl).into(binding.poster)
+        val list = item.movieInfo.showTimes.map { showTime ->
+            DateItem(showTime.date)
+        }
+        list[0].isSelected = true
+        dateAdapter.differ.submitList(list)
+
+        val timeList = movieInfo.movieInfo.showTimes.find { showTime ->
+            showTime.date == list[0].date
+        }?.sessions
+        timeAdapter.differ.submitList(timeList)
+    }
+
+
+    private fun refreshDateAndTime(it: DateItem) {
+        val timeList = movieInfo.movieInfo.showTimes.find { showTime ->
+            showTime.date == it.date
+        }?.sessions
+        if (timeList == null) {
+            Toast.makeText(requireContext(),
+                getString(R.string.no_showtimes_available), Toast.LENGTH_SHORT)
+                .show()
+            return
+        }
+        val list = dateAdapter.differ.currentList
+        list.forEach { dateItem ->
+            dateItem.isSelected = dateItem.date == it.date
+        }
+        dateAdapter.differ.submitList(list)
+        timeAdapter.differ.submitList(timeList)
+
+        dateAdapter.notifyDataSetChanged()
     }
 
 

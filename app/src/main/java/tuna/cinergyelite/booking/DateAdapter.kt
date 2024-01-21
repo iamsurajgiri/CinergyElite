@@ -11,21 +11,21 @@ import tuna.cinergyelite.databinding.DateItemBinding
 import tuna.cinergyelite.utils.DateUtils
 
 class DateAdapter(
-    private val onDateClick: (String) -> Unit
+    private val onDateClick: (DateItem) -> Unit
 ) : RecyclerView.Adapter<DateAdapter.DateViewHolder>() {
 
     private val diffUtilCallback = object
-        : DiffUtil.ItemCallback<String>() {
+        : DiffUtil.ItemCallback<DateItem>() {
         override fun areItemsTheSame(
-            oldItem: String,
-            newItem: String
+            oldItem: DateItem,
+            newItem: DateItem
         ): Boolean {
-            return oldItem == newItem
+            return oldItem.date == newItem.date
         }
 
         override fun areContentsTheSame(
-            oldItem: String,
-            newItem: String
+            oldItem: DateItem,
+            newItem: DateItem
         ): Boolean {
             return oldItem == newItem
         }
@@ -51,14 +51,18 @@ class DateAdapter(
     inner class DateViewHolder(private val binding: DateItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(date: String) {
-            val dayDate = DateUtils.convertDateFormat(date)
+        fun bind(item: DateItem) {
+            val dayDate = DateUtils.convertDateFormat(item.date)
+            if (item.isSelected) {
+                binding.parent.setBackgroundColor(Color.parseColor("#ffffff"))
+            }else{
+                binding.parent.setBackgroundColor(Color.parseColor("#f2f2f2"))
+            }
             binding.day.text = dayDate.day
             binding.date.text =
                 binding.root.context.getString(R.string.day_date, dayDate.month, dayDate.date)
             binding.root.setOnClickListener {
-                onDateClick(date)
-                binding.root.setBackgroundColor(Color.parseColor("#f2f2f2"))
+                onDateClick(item)
             }
         }
     }
