@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/primary"
         android:layout_width="wrap_content"
-        tools:text="Tue"
+        tools:text="Mon"
         android:textStyle="bold"
         android:layout_height="wrap_content"/>
 
